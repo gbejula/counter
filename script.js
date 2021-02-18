@@ -21,10 +21,17 @@ function updateCountdown() {
   const m = Math.floor(diff / 1000 / 60) % 60;
   const s = Math.floor(diff / 1000) % 60;
 
+  // Add the values to the DOM
   days.innerHTML = d;
   hours.innerHTML = h < 10 ? '0' + h : h;
   minutes.innerHTML = m < 10 ? '0' + m : m;
   seconds.innerHTML = s < 10 ? '0' + s : s;
 }
+
+// Show the spinner before countdown
+setTimeout(() => {
+  loading.remove();
+  countdown.style.display = 'flex';
+}, 1000);
 
 setInterval(updateCountdown, 1000);
